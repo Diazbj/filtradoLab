@@ -1,8 +1,5 @@
 import cv2
 import matplotlib.pyplot as plt
-from numpy.ma.core import resize
-
-from src.basico.basico import img_gray
 
 img = cv2.imread('deltoide2.jpg')
 
@@ -14,11 +11,6 @@ img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 resize_img = cv2.resize(gray_img,(90,90))
-
-# #imagen redimensionada
-# plt.imshow(resize_img)
-# plt.axis('off')
-# plt.show()
 
 #guardar imagen
 cv2.imwrite('resize_img.jpg', resize_img)
@@ -34,11 +26,6 @@ M = cv2.getRotationMatrix2D(center,45,1)
 
 #Rotar imagen
 rotated_img = cv2.warpAffine(img,M,(w,h))
-
-# #mostrar imagen
-# plt.imshow(rotated_img)
-# plt.axis('off')
-# plt.show()
 
 cv2.imwrite('rotated_img.jpg', rotated_img)
 
